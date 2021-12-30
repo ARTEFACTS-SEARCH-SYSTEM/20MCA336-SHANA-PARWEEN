@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Books</title>
+    <style>
+      html {
+        padding: 0;
+        margin: 0;
+     }
+
+      body {
+         background-color: rgb(210, 245, 116);
+        position: relative;
+        font-family: "Times New Roman", Times, serif;
+        width: 100%;
+        margin: 0;
+      }
+      section-2{
+        column-count:3;
+      }
+    </style>
+    </head>
+
+
+    <body>
+      <br>
+      <form  align = "right" action="/category" id="author-form" method="POST">
+
+      <select name ="catinput" style="font-size:15px;" id ="dropDownId">
+          <option>Select Category</option>
+          <option value="Internet">Internet</option>
+          <option value="Java">Java</option>
+          <option value="Microsoft">Microsoft</option>
+          <option value="Web Development">Web Development</option>
+           <option value="Miscellaneous">Miscellaneous</option>
+            <option value="Microsoft.NET">Microsoft.NET</option>
+             <option value="Networking">Networking</option>
+              <option value="Mobile">Mobile</option>
+      </select>
+      <input class="SubmitButton" type="submit"  id="click" style="font-size:15px;" />
+    </form>
+    <form action ="/search"  align = "center" id="searchBook" method="POST">
+       <input style="font-size:15px;" type="text"  class="searchForm" name="searchinput" placeholder="Search by Author"> OR 
+       <input style="font-size:15px;" type="text"  class="searchForm" name="searchinput" placeholder="Search by Title">
+       <button style="font-size:15px" type ="submit">Search</button>
+    </form>
+
+        <br>  
+     <div class="section-1">
+        <div class="Section-1-text">
+            <center><h1>Welcome to Shana's Book Inventory</h1>  
+        </center>
+        </div>
+    </div>
+    <div class="section-2">
+        <h2>EXPLORE!!</h2>
+        <table width="50" border="0" cols="3" align="center" cellspacing="0" cellpadding="25"
+       <tr cols="3" align="center"></tr>
+       
+       {{#each results}}
+          <div> <td>
+        <img src="{{this.thumbnailUrl}}"width="200" height="200"/><br>
+           <p>TITLE: {{this.title}}</p>
+            <p>ISBN: {{this.isbn}}</p>
+                <p>PAGECOUNT: {{this.pageCount}}</p>
+                <p>PUBLISHEDDATE: {{this.publishedDate}}</p>
+                <p>STATUS: {{this.status}}</p>
+                <p>AUTHORS: {{this.authors}}</p>
+                <p>CATEGORIES: {{this.categories}}</p>
+                <p>PRICE: {{this.Price}}</p>
+        
+        </td> 
+        </div>   
+        {{/each}}
+        </tr>
+        </table>
+       </center>
+     </body>
+   </html>
